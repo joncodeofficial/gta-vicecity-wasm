@@ -1,0 +1,3 @@
+var wasmExports;
+createWasm();
+run();
