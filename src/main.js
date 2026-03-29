@@ -174,7 +174,6 @@ async function waitForGameReady(retries = 6, delayMs = 400) {
 async function initSetupFlow() {
   const overlay = document.getElementById("setup-overlay");
   const downloadLink = document.getElementById("dl-link");
-  const importBundledButton = document.getElementById("import-bundled-button");
   const fileInput = document.getElementById("game-file-input");
   const progress = document.getElementById("setup-progress");
   const progressBar = document.getElementById("setup-progress-bar");
@@ -188,7 +187,6 @@ async function initSetupFlow() {
   if (
     !overlay ||
     !downloadLink ||
-    !importBundledButton ||
     !fileInput ||
     !progress ||
     !progressBar ||
@@ -339,54 +337,6 @@ async function initSetupFlow() {
   setStorageStatus("Import required", "missing");
 
   console.log("[setup] waiting for file selection");
-  importBundledButton.addEventListener("click", async () => {
-    selectedFileName.textContent = "game.tar.gz";
-    progress.style.display = "block";
-    progressLabel.textContent = "Downloading bundled archive…";
-    progressPercent.textContent = "0%";
-    progressBar.style.width = "0%";
-    setPlayAvailability(false);
-
-    try {
-      const response = await fetch(ASSET_RELEASE_URL, { cache: "no-store" });
-      if (!response.ok) {
-        throw new Error(`Failed to download game.tar.gz (${response.status})`);
-      }
-
-      const contentLength = Number(response.headers.get("content-length")) || 0;
-      const reader = response.body?.getReader();
-
-      if (!reader) {
-        const blob = await response.blob();
-        const file = new File([blob], "game.tar.gz", { type: "application/gzip" });
-        await runImport(file);
-        return;
-      }
-
-      const chunks = [];
-      let received = 0;
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        chunks.push(value);
-        received += value.byteLength;
-        if (contentLength > 0) {
-          const pct = Math.min(100, Math.round((received / contentLength) * 100));
-          progressPercent.textContent = `${pct}%`;
-          progressBar.style.width = `${pct}%`;
-        }
-      }
-
-      const blob = new Blob(chunks, { type: "application/gzip" });
-      const file = new File([blob], "game.tar.gz", { type: "application/gzip" });
-      await runImport(file);
-    } catch (error) {
-      showError(error.message);
-      document
-        .querySelectorAll(".setup-actions-panel")
-        .forEach((element) => (element.style.opacity = "1"));
-    }
-  });
 
   fileInput.addEventListener("change", async () => {
     console.log("[setup] file selected:", fileInput.files[0]?.name);
