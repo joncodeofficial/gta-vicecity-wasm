@@ -826,7 +826,7 @@ var runMainThreadEmAsm = (emAsmAddr, sigPtr, argbuf, sync) => {
 var _emscripten_asm_const_int_sync_on_main_thread = (emAsmAddr, sigPtr, argbuf) => runMainThreadEmAsm(emAsmAddr, sigPtr, argbuf, 1);
 var _emscripten_asm_const_ptr_sync_on_main_thread = (emAsmAddr, sigPtr, argbuf) => runMainThreadEmAsm(emAsmAddr, sigPtr, argbuf, 1);
 var _emscripten_err = str => err(UTF8ToString(str));
-var _emscripten_set_window_title = title => document.title = UTF8ToString(title);
+var _emscripten_set_window_title = title => {};
 var _emscripten_sleep = () => {
     abort("Please compile your program with async support in order to use asynchronous operations like emscripten_sleep")
 };
