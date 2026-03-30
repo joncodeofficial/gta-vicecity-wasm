@@ -1,11 +1,13 @@
 # GTA: Vice City — WASM Port
 
+**Live:** [joncodeofficial.github.io/gta-vicecity-wasm](https://joncodeofficial.github.io/gta-vicecity-wasm/)
+
 A browser-based port of Grand Theft Auto: Vice City built on the open-source re3/reVC engine, compiled to WebAssembly. Import your own game archive once and play locally — no server required, no launcher, no install.
 
 ## How it works
 
-1. Download or locate your `game.tar.gz` archive
-2. Open the page and click **Select game.tar.gz** to import the file
+1. Download `game.tar.gz` from the [latest release](https://github.com/joncodeofficial/gta-vicecity-wasm/releases/latest)
+2. Open the [live page](https://joncodeofficial.github.io/gta-vicecity-wasm/) and click **Select game.tar.gz** to import the file
 3. The archive is extracted into your browser's local storage (OPFS) — this only happens once
 4. Click **Click to play** and the game loads entirely from your device
 
