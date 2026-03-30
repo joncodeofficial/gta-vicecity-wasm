@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/gta-vicecity-wasm/",
+  base: "/gta-vice-city-wasm/",
 });

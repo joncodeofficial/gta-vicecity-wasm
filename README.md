@@ -1,6 +1,6 @@
 # GTA: Vice City — WASM Port
 
-**Live:** [joncodeofficial.github.io/gta-vicecity-wasm](https://joncodeofficial.github.io/gta-vicecity-wasm/)
+**Live:** [joncodeofficial.github.io/gta-vice-city-wasm](https://joncodeofficial.github.io/gta-vice-city-wasm/)
 
 A **local-first** browser port of Grand Theft Auto: Vice City. Import your own `game.tar.gz` once — it gets extracted and stored directly in your browser via OPFS. From that point on, the game runs entirely from your device with no CDN, no external server, and no recurring downloads.
 
@@ -8,8 +8,8 @@ This is a different approach from the original DOS Zone port, which streams game
 
 ## How it works
 
-1. Download `game.tar.gz` from the [latest release](https://github.com/joncodeofficial/gta-vicecity-wasm/releases/latest)
-2. Open the [live page](https://joncodeofficial.github.io/gta-vicecity-wasm/) and click **Select game.tar.gz** to import the file
+1. Download `game.tar.gz` from the [latest release](https://github.com/joncodeofficial/gta-vice-city-wasm/releases/latest)
+2. Open the [live page](https://joncodeofficial.github.io/gta-vice-city-wasm/) and click **Select game.tar.gz** to import the file
 3. The archive is extracted into your browser's local storage (OPFS) — this only happens once
 4. Click **Click to play** and the game loads entirely from your device
 
