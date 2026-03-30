@@ -2,7 +2,9 @@
 
 **Live:** [joncodeofficial.github.io/gta-vicecity-wasm](https://joncodeofficial.github.io/gta-vicecity-wasm/)
 
-A browser-based port of Grand Theft Auto: Vice City built on the open-source re3/reVC engine, compiled to WebAssembly. Import your own game archive once and play locally — no server required, no launcher, no install.
+A **local-first** browser port of Grand Theft Auto: Vice City. Import your own `game.tar.gz` once — it gets extracted and stored directly in your browser via OPFS. From that point on, the game runs entirely from your device with no CDN, no external server, and no recurring downloads.
+
+This is a different approach from the original DOS Zone port, which streams game assets from a remote CDN. Here, a Service Worker intercepts all game file requests and serves them from local OPFS storage — meaning it works offline after the first import.
 
 ## How it works
 
