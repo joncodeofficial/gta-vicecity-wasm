@@ -173,6 +173,40 @@ async function waitForGameReady(retries = 6, delayMs = 400) {
   return { ready: false, reason: lastReason };
 }
 
+async function resetGameData() {
+  // Clear OPFS: delete all known directories and the marker file
+  try {
+    const root = await navigator.storage.getDirectory();
+    for (const name of ["vcbr", "vcsky", "_game_ready"]) {
+      try {
+        await root.removeEntry(name, { recursive: true });
+      } catch {
+        // entry may not exist
+      }
+    }
+  } catch (err) {
+    console.warn("[reset] OPFS clear failed:", err);
+  }
+
+  // Clear IndexedDB databases used by Emscripten IDBFS
+  try {
+    const dbs = await indexedDB.databases();
+    await Promise.all(
+      dbs.map(
+        (db) =>
+          new Promise((resolve) => {
+            const req = indexedDB.deleteDatabase(db.name);
+            req.onsuccess = resolve;
+            req.onerror = resolve;
+            req.onblocked = resolve;
+          }),
+      ),
+    );
+  } catch (err) {
+    console.warn("[reset] IndexedDB clear failed:", err);
+  }
+}
+
 async function initSetupFlow() {
   const overlay = document.getElementById("setup-overlay");
   const downloadLink = document.getElementById("dl-link");
@@ -185,6 +219,7 @@ async function initSetupFlow() {
   const storageStatus = document.getElementById("storage-status");
   const selectedFileName = document.getElementById("selected-file-name");
   const clickToPlayButton = document.getElementById("click-to-play-button");
+  const resetBtn = document.getElementById("reset-game-btn");
 
   if (
     !overlay ||
@@ -218,7 +253,27 @@ async function initSetupFlow() {
     window.__gtaGameReady = enabled;
     clickToPlayButton.disabled = !enabled;
     clickToPlayButton.classList.toggle("disabled", !enabled);
+    if (resetBtn) resetBtn.classList.toggle("hidden", !enabled);
   };
+
+  if (resetBtn) {
+    resetBtn.addEventListener("click", async () => {
+      if (!confirm("This will delete all local game data (OPFS + IndexedDB). You will need to re-import game.tar.gz. Continue?")) {
+        return;
+      }
+      resetBtn.disabled = true;
+      resetBtn.textContent = "Resetting…";
+      await resetGameData();
+      setStorageStatus("Import required", "missing");
+      setPlayAvailability(false);
+      progress.style.display = "none";
+      errorBox.style.display = "none";
+      selectedFileName.textContent = "No file selected";
+      fileInput.value = "";
+      resetBtn.disabled = false;
+      resetBtn.textContent = "Reset game data";
+    });
+  }
 
   const runImport = async (file) => {
     errorBox.style.display = "none";
