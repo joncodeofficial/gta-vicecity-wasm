@@ -38,13 +38,15 @@ Then open `http://localhost:5173`.
 
 ## Credits
 
-This project is based on the HTML5 port created by the **DOS Zone** team:
+**Browser client port** (OPFS storage, Service Worker, import UI, GitHub Pages deploy):
+[@joncodeofficial](https://github.com/joncodeofficial)
 
+**Based on** [reVCDOS](https://github.com/Lolendor/reVCDOS) by [@Lolendor](https://github.com/Lolendor)
+
+**WASM engine port** by the DOS Zone team:
 - [@specialist003](https://github.com/okhmanyuk-ev)
 - [@caiiiycuk](https://www.youtube.com/caiiiycuk)
 - [@SerGen](https://t.me/ser_var)
-
-Deobfuscated by [@Lolendor](https://github.com/Lolendor) — original repo: [reVCDOS](https://github.com/Lolendor/reVCDOS)
 
 The game engine is based on the open-source reverse engineering project [re3/reVC](https://github.com/SugaryHull/re3/tree/miami).
 
