@@ -3,7 +3,6 @@
 ## Performance
 
 - [ ] Compress assets with Brotli at extraction time — store compressed in OPFS and decompress when serving
-- [ ] Cache the WASM binary in Cache API in addition to OPFS for faster startup
 
 ## Mobile
 
