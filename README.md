@@ -8,7 +8,7 @@ This is a different approach from the original DOS Zone port, which streams game
 
 ## How it works
 
-1. Download `game.tar.gz` from the [latest release](https://github.com/joncodeofficial/gta-vice-city-wasm/releases/latest)
+1. Download `game.tar.gz`
 2. Open the [live page](https://joncodeofficial.github.io/gta-vice-city-wasm/) and click **Select game.tar.gz** to import the file
 3. The archive is extracted into your browser's local storage (OPFS) — this only happens once
 4. Click **Click to play** and the game loads entirely from your device
