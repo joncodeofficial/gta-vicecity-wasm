@@ -1,4 +1,4 @@
-const ASSET_RELEASE_URL = "https://github.com/joncodeofficial/gta-vice-city-wasm/releases/download/v1.0.0/game.tar.gz";
+const ASSET_RELEASE_URL = import.meta.env.VITE_ASSET_URL;
 
 const BASE = import.meta.env.BASE_URL;
 
