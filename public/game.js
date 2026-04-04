@@ -167,6 +167,10 @@ async function startGame(e) {
     e.stopPropagation();
     await resumeAudioContexts();
 
+    if (isTouch && document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {});
+    }
+
     document.querySelector('.start-container').style.display = 'none';
     document.querySelector('.disclaimer').style.display = 'none';
     document.querySelector('.developed-by').style.display = 'none';
@@ -306,7 +310,7 @@ async function loadGame(data) {
     const gamepad = emulator.AddEmulatedGamepad(null, true);
     const gamepadEmulatorConfig = {
         directions: { up: true, down: true, left: true, right: true },
-        dragDistance: 100,
+        dragDistance: isTouch ? 85 : 100,
         tapTarget: move,
         lockTargetWhilePressed: true,
         xAxisIndex: 0,
