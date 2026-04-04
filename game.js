@@ -168,7 +168,7 @@ async function startGame(e) {
     await resumeAudioContexts();
 
     if (isTouch && document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen().catch(() => {});
+        await document.documentElement.requestFullscreen().catch(() => {});
     }
 
     document.querySelector('.start-container').style.display = 'none';
