@@ -1,26 +1,27 @@
 /* ─── Design tokens ─────────────────────────────────────────── */
 :root {
-  --bg:           #05060a;
-  --surface:      #0b0d14;
-  --surface-2:    #10131c;
-  --surface-3:    #161a26;
-  --border:       rgba(255, 40, 110, 0.10);
-  --border-bright:rgba(255, 40, 110, 0.22);
-  --border-cyan:  rgba(0, 210, 255, 0.12);
-  --accent:       #ff2870;
-  --accent-2:     #00d2ff;
-  --text-1:       #eef0ff;
-  --text-2:       #727d98;
-  --text-3:       #3e4560;
-  --success:      #00e5a0;
-  --warning:      #ffb740;
-  --danger:       #ff4757;
-  --radius-card:  22px;
+  --bg: #05060a;
+  --surface: #0b0d14;
+  --surface-2: #10131c;
+  --surface-3: #161a26;
+  --border: rgba(255, 40, 110, 0.1);
+  --border-bright: rgba(255, 40, 110, 0.22);
+  --border-cyan: rgba(0, 210, 255, 0.12);
+  --accent: #ff2870;
+  --accent-2: #00d2ff;
+  --text-1: #eef0ff;
+  --text-2: #727d98;
+  --text-3: #3e4560;
+  --success: #00e5a0;
+  --warning: #ffb740;
+  --danger: #ff4757;
+  --radius-card: 22px;
   --radius-inner: 14px;
-  --radius-btn:   11px;
-  --shadow-card:  0 20px 60px rgba(0, 0, 0, 0.55), 0 1px 0 rgba(255,255,255,0.03) inset;
-  --glow-accent:  0 0 24px rgba(255, 40, 110, 0.18);
-  --glow-cyan:    0 0 24px rgba(0, 210, 255, 0.14);
+  --radius-btn: 11px;
+  --shadow-card:
+    0 20px 60px rgba(0, 0, 0, 0.55), 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+  --glow-accent: 0 0 24px rgba(255, 40, 110, 0.18);
+  --glow-cyan: 0 0 24px rgba(0, 210, 255, 0.14);
 }
 
 /* ─── Base ───────────────────────────────────────────────────── */
@@ -40,14 +41,24 @@ body {
   margin: 0;
   padding: 0;
   color: var(--text-1);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", system-ui, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", system-ui,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   text-align: center;
   user-select: text;
   overflow-x: hidden;
   background:
-    radial-gradient(ellipse 90% 55% at 10% 100%, rgba(255, 28, 90, 0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 70% 50% at 90% 0%, rgba(0, 180, 255, 0.06) 0%, transparent 65%),
+    radial-gradient(
+      ellipse 90% 55% at 10% 100%,
+      rgba(255, 28, 90, 0.07) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 90% 0%,
+      rgba(0, 180, 255, 0.06) 0%,
+      transparent 65%
+    ),
     var(--bg);
 }
 
@@ -73,7 +84,9 @@ a {
   text-decoration: none;
   transition: color 0.15s;
 }
-a:hover { color: #fff; }
+a:hover {
+  color: #fff;
+}
 
 /* ─── Layout ─────────────────────────────────────────────────── */
 .start-container {
@@ -111,7 +124,7 @@ a:hover { color: #fff; }
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .start-container > div:first-child > div:first-child {
@@ -187,7 +200,7 @@ a:hover { color: #fff; }
 }
 
 .storage-status[data-state="ready"] {
-  border-color: rgba(0, 229, 160, 0.30);
+  border-color: rgba(0, 229, 160, 0.3);
   color: #8fffd8;
   background: rgba(0, 229, 160, 0.07);
   box-shadow: 0 0 16px rgba(0, 229, 160, 0.08);
@@ -200,7 +213,7 @@ a:hover { color: #fff; }
 }
 
 .storage-status[data-state="error"] {
-  border-color: rgba(255, 80, 80, 0.30);
+  border-color: rgba(255, 80, 80, 0.3);
   color: #ff7b7b;
   background: rgba(255, 80, 80, 0.06);
 }
@@ -261,7 +274,10 @@ a:hover { color: #fff; }
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    filter 0.15s;
   background: transparent;
   color: #ff6b6b;
   border: 1px solid rgba(255, 107, 107, 0.35);
@@ -292,7 +308,6 @@ a:hover { color: #fff; }
   box-shadow: var(--glow-accent);
   background: rgba(255, 40, 110, 0.06);
 }
-
 
 /* ─── File picker ────────────────────────────────────────────── */
 .file-picker {
@@ -450,7 +465,7 @@ a:hover { color: #fff; }
   letter-spacing: 0.02em;
   box-shadow:
     0 4px 20px rgba(255, 40, 110, 0.35),
-    0 1px 0 rgba(255,255,255,0.12) inset;
+    0 1px 0 rgba(255, 255, 255, 0.12) inset;
   width: 100%;
   min-height: 52px;
 }
@@ -459,8 +474,8 @@ a:hover { color: #fff; }
 .click-to-play button:not(:disabled):focus {
   transform: translateY(-2px);
   box-shadow:
-    0 8px 32px rgba(255, 40, 110, 0.50),
-    0 1px 0 rgba(255,255,255,0.15) inset;
+    0 8px 32px rgba(255, 40, 110, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.15) inset;
   filter: brightness(1.06);
   outline: none;
 }
@@ -506,7 +521,9 @@ a:hover { color: #fff; }
   color: var(--text-1);
   font-size: 0.92rem;
 }
-.links-panel a:hover { color: var(--accent-2); }
+.links-panel a:hover {
+  color: var(--accent-2);
+}
 
 /* ─── Cover image ────────────────────────────────────────────── */
 .cover-panel {
@@ -522,7 +539,9 @@ a:hover { color: #fff; }
   height: 600px;
   object-fit: cover;
   object-position: center top;
-  transition: transform 0.4s ease, filter 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
 }
 .cover-panel:hover .cover-image {
   transform: scale(1.03);
@@ -640,7 +659,11 @@ select:focus {
   .instructions-panel,
   .disclaimer,
   .developed-by,
-  .start-container > div:first-child > div:first-child > div:last-child > div:last-child {
+  .start-container
+    > div:first-child
+    > div:first-child
+    > div:last-child
+    > div:last-child {
     padding: 14px;
   }
 }
@@ -764,8 +787,13 @@ select:focus {
 }
 
 @keyframes spin-hint {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(90deg); }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
 }
 
 .wasted-container {
@@ -830,9 +858,9 @@ select:focus {
 }
 .touch-control.car.getIn {
   background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M112.826 27.04c3.368 2.647 6.287 4.85 9.743 7.38-5.187 6.85-10.147 13.085-15.288 19.41 2.753 3.265 5.108 5.824 8.002 9.566-5.86-.177-24.25 0-24.25 0-1.24-9.96-2.455-16.65-3.683-26.03 3.44 3.278 6.422 5.84 10.382 8.587 5.913-6.907 9.656-11.38 15.094-18.914z' fill='%23fff'/%3E%3Cpath d='M90 5.243c46.735 0 84.757 38.022 84.757 84.757 0 46.735-38.022 84.757-84.757 84.757-46.735 0-84.757-38.022-84.757-84.757C5.243 43.265 43.265 5.243 90 5.243zM90 0C40.294 0 0 40.294 0 90s40.294 90 90 90 90-40.294 90-90S139.706 0 90 0z' fill='%23fff'/%3E%3Cpath d='M145.936 84.723c-.15-.282-.818-.517-1.126-.597-4.66-1.21-8.292 1.697-12.74 3.443-3.497-5.626-6.708-12.57-10.783-16.874-1.344-1.344-2.684-1.356-5.115-1.53-5.38-.387-14.963-.43-24.27-.322-9.308-.107-18.892-.065-24.27.32-2.432.176-3.772.188-5.116 1.532C58.44 75 55.23 81.944 51.733 87.57c-4.448-1.747-8.08-4.654-12.74-3.444-.308.08-.977.315-1.126.597-1.606 3.04 6.236 5.984 8.977 7.433-1.56 3.096-3.625 6.33-5.157 9.312-.42.815-.645 1.705-.645 4.02v19.378c0 3.144 2.59 5.627 5.733 5.584 3.948-.053 8.017.222 11.862.128 1.656-.04 3.193-.826 4.263-2.09 2.698-3.193 4.257-3.63 9.682-2.144 6.722 1.84 12.866 2.642 19.32 2.442 6.453.2 12.597-.6 19.32-2.442 5.424-1.486 6.983-1.05 9.68 2.143 1.07 1.265 2.608 2.05 4.264 2.09 3.845.095 7.914-.18 11.862-.127 3.144.043 5.733-2.44 5.733-5.584v-19.38c0-2.313-.225-3.203-.644-4.018-1.532-2.98-3.597-6.216-5.157-9.312 2.74-1.45 10.582-4.393 8.976-7.433zm-77.32 26.443c-.565.447-1.254.725-1.97.81l-.478.054c-7.588.912-30.085-.418-18.638-13.027 1.39-2.116 32.598 3.08 21.088 12.163zm37.6 13.318c-3.366 0-8.032.032-12.428.057-.034 0-.06-.008-.092-.01-.034.002-.058.01-.093.01h-.237v-.018l-1.465.01-1.463-.01v.018H90.2c-.035 0-.06-.008-.093-.01-.033.002-.058.01-.092.01-4.396-.024-9.062-.056-12.43-.056-2.86 0-4.687-2.144-4.687-3.71 0-2.447 1.598-4.326 4.86-4.288 4.027-.078 8.115-.017 12.198 0 .048 0 .1.03.15.044.052-.014.105-.044.152-.044.548-.002 1.096-.006 1.644-.01.547.004 1.095.008 1.643.01.047 0 .1.03.15.044.05-.014.104-.044.152-.044 4.083-.017 8.17-.078 12.198 0 3.262-.038 4.86 1.84 4.86 4.288 0 1.566-1.828 3.71-4.688 3.71zm-12.85-33.716v-.013l-1.465.007-1.463-.007v.013c-13.286.05-27.046-.036-34.213-.433 3.203-5.86 5.188-10.063 9.016-15.986 6.264 0 15.72.116 25.197.232v.036l1.465-.018 1.464.018v-.036c9.476-.116 18.933-.233 25.197-.233 3.828 5.922 5.813 10.125 9.016 15.985-7.168.397-20.928.483-34.214.433zm24.27 21.262l-.478-.055c-.717-.084-1.406-.362-1.972-.81-11.51-9.083 19.697-14.278 21.087-12.162 11.447 12.61-11.05 13.94-18.638 13.027z' fill='%23fff'/%3E%3C/svg%3E");
-  width: 13vmin;
-  height: 13vmin;
-  bottom: 50vmin;
+  width: 15.5vmin;
+  height: 15.5vmin;
+  bottom: 40vmin;
   right: 4vmin;
 }
 [data-state-car="1"] .touch-control.car.getIn {
@@ -1033,4 +1061,3 @@ video::-webkit-media-controls {
 video {
   pointer-events: none;
 }
-
